@@ -4,8 +4,11 @@
   "description": "express react",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "server":"supervisor server.js"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "supervisor server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\""
   },
   "author": "Faris Dewantoro",
   "license": "MIT",
@@ -21,6 +24,8 @@
     "validator": "^10.8.0"
   },
   "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4",
     "supervisor": "^0.12.0"
   }
 }
